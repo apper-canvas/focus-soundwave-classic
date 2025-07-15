@@ -1,4 +1,26 @@
-import genresData from '@/services/mockData/genres.json';
+// Dynamic import to handle JSON loading properly in Vite
+let genresData = [];
+let isLoading = true;
+let loadError = null;
+
+// Load genres data with error handling
+const loadGenresData = async () => {
+  try {
+    const module = await import('@/services/mockData/genres.json');
+    genresData = module.default || [];
+    isLoading = false;
+    return genresData;
+  } catch (error) {
+    console.error('Failed to load genres data:', error);
+    loadError = error;
+    isLoading = false;
+    genresData = []; // Fallback to empty array
+    return genresData;
+  }
+};
+
+// Initialize data loading
+loadGenresData();
 
 const genresService = {
   async getAll() {

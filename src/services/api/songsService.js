@@ -1,4 +1,26 @@
-import songsData from '@/services/mockData/songs.json';
+// Dynamic import to handle JSON loading properly in Vite
+let songsData = [];
+let isLoading = true;
+let loadError = null;
+
+// Load songs data with error handling
+const loadSongsData = async () => {
+  try {
+    const module = await import('@/services/mockData/songs.json');
+    songsData = module.default || [];
+    isLoading = false;
+    return songsData;
+  } catch (error) {
+    console.error('Failed to load songs data:', error);
+    loadError = error;
+    isLoading = false;
+    songsData = []; // Fallback to empty array
+    return songsData;
+  }
+};
+
+// Initialize data loading
+loadSongsData();
 
 const songsService = {
   async getAll() {

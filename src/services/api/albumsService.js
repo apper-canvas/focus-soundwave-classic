@@ -1,4 +1,26 @@
-import albumsData from '@/services/mockData/albums.json';
+// Dynamic import to handle JSON loading properly in Vite
+let albumsData = [];
+let isLoading = true;
+let loadError = null;
+
+// Load albums data with error handling
+const loadAlbumsData = async () => {
+  try {
+    const module = await import('@/services/mockData/albums.json');
+    albumsData = module.default || [];
+    isLoading = false;
+    return albumsData;
+  } catch (error) {
+    console.error('Failed to load albums data:', error);
+    loadError = error;
+    isLoading = false;
+    albumsData = []; // Fallback to empty array
+    return albumsData;
+  }
+};
+
+// Initialize data loading
+loadAlbumsData();
 
 const albumsService = {
   async getAll() {
