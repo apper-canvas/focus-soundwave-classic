@@ -1,0 +1,138 @@
+{
+  "savedSongs": [
+    {
+      "Id": 1,
+      "title": "Blinding Lights",
+      "artist": "The Weeknd",
+      "album": "After Hours",
+      "duration": 200,
+      "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+      "audioUrl": "https://example.com/audio/blinding-lights.mp3",
+      "genre": "Pop"
+    },
+    {
+      "Id": 4,
+      "title": "Bohemian Rhapsody",
+      "artist": "Queen",
+      "album": "A Night at the Opera",
+      "duration": 355,
+      "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+      "audioUrl": "https://example.com/audio/bohemian-rhapsody.mp3",
+      "genre": "Rock"
+    },
+    {
+      "Id": 7,
+      "title": "God's Plan",
+      "artist": "Drake",
+      "album": "Scorpion",
+      "duration": 198,
+      "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+      "audioUrl": "https://example.com/audio/gods-plan.mp3",
+      "genre": "Hip-Hop"
+    }
+  ],
+  "savedAlbums": [
+    {
+      "Id": 1,
+      "name": "After Hours",
+      "artist": "The Weeknd",
+      "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+      "releaseYear": 2020,
+      "songs": [
+        {
+          "Id": 1,
+          "title": "Blinding Lights",
+          "artist": "The Weeknd",
+          "album": "After Hours",
+          "duration": 200,
+          "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+          "audioUrl": "https://example.com/audio/blinding-lights.mp3",
+          "genre": "Pop"
+        }
+      ]
+    },
+    {
+      "Id": 4,
+      "name": "A Night at the Opera",
+      "artist": "Queen",
+      "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+      "releaseYear": 1975,
+      "songs": [
+        {
+          "Id": 4,
+          "title": "Bohemian Rhapsody",
+          "artist": "Queen",
+          "album": "A Night at the Opera",
+          "duration": 355,
+          "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+          "audioUrl": "https://example.com/audio/bohemian-rhapsody.mp3",
+          "genre": "Rock"
+        }
+      ]
+    }
+  ],
+  "playlists": [
+    {
+      "Id": 1,
+      "name": "My Favorites",
+      "description": "Personal collection of favorite songs",
+      "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+      "isPublic": false,
+      "createdAt": "2024-01-15T10:00:00Z",
+      "songs": [
+        {
+          "Id": 1,
+          "title": "Blinding Lights",
+          "artist": "The Weeknd",
+          "album": "After Hours",
+          "duration": 200,
+          "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+          "audioUrl": "https://example.com/audio/blinding-lights.mp3",
+          "genre": "Pop"
+        },
+        {
+          "Id": 4,
+          "title": "Bohemian Rhapsody",
+          "artist": "Queen",
+          "album": "A Night at the Opera",
+          "duration": 355,
+          "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+          "audioUrl": "https://example.com/audio/bohemian-rhapsody.mp3",
+          "genre": "Rock"
+        }
+      ]
+    }
+  ],
+  "recentlyPlayed": [
+    {
+      "Id": 1,
+      "title": "Blinding Lights",
+      "artist": "The Weeknd",
+      "album": "After Hours",
+      "duration": 200,
+      "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+      "audioUrl": "https://example.com/audio/blinding-lights.mp3",
+      "genre": "Pop"
+    },
+    {
+      "Id": 2,
+      "title": "Watermelon Sugar",
+      "artist": "Harry Styles",
+      "album": "Fine Line",
+      "duration": 174,
+      "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+      "audioUrl": "https://example.com/audio/watermelon-sugar.mp3",
+      "genre": "Pop"
+    },
+    {
+      "Id": 4,
+      "title": "Bohemian Rhapsody",
+      "artist": "Queen",
+      "album": "A Night at the Opera",
+      "duration": 355,
+      "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+      "audioUrl": "https://example.com/audio/bohemian-rhapsody.mp3",
+      "genre": "Rock"
+    }
+  ]
+}

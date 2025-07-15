@@ -1,0 +1,252 @@
+[
+  {
+    "Id": 1,
+    "name": "Today's Top Hits",
+    "description": "The hottest songs right now",
+    "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+    "isPublic": true,
+    "createdAt": "2024-01-15T10:00:00Z",
+    "songs": [
+      {
+        "Id": 1,
+        "title": "Blinding Lights",
+        "artist": "The Weeknd",
+        "album": "After Hours",
+        "duration": 200,
+        "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/blinding-lights.mp3",
+        "genre": "Pop"
+      },
+      {
+        "Id": 2,
+        "title": "Watermelon Sugar",
+        "artist": "Harry Styles",
+        "album": "Fine Line",
+        "duration": 174,
+        "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/watermelon-sugar.mp3",
+        "genre": "Pop"
+      },
+      {
+        "Id": 3,
+        "title": "Levitating",
+        "artist": "Dua Lipa",
+        "album": "Future Nostalgia",
+        "duration": 203,
+        "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/levitating.mp3",
+        "genre": "Pop"
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "name": "Rock Classics",
+    "description": "Timeless rock anthems",
+    "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+    "isPublic": true,
+    "createdAt": "2024-01-14T15:30:00Z",
+    "songs": [
+      {
+        "Id": 4,
+        "title": "Bohemian Rhapsody",
+        "artist": "Queen",
+        "album": "A Night at the Opera",
+        "duration": 355,
+        "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/bohemian-rhapsody.mp3",
+        "genre": "Rock"
+      },
+      {
+        "Id": 5,
+        "title": "Stairway to Heaven",
+        "artist": "Led Zeppelin",
+        "album": "Led Zeppelin IV",
+        "duration": 482,
+        "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/stairway-to-heaven.mp3",
+        "genre": "Rock"
+      },
+      {
+        "Id": 13,
+        "title": "Sweet Child O' Mine",
+        "artist": "Guns N' Roses",
+        "album": "Appetite for Destruction",
+        "duration": 356,
+        "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/sweet-child-o-mine.mp3",
+        "genre": "Rock"
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "name": "Hip-Hop Hits",
+    "description": "The best of hip-hop",
+    "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+    "isPublic": true,
+    "createdAt": "2024-01-13T12:00:00Z",
+    "songs": [
+      {
+        "Id": 6,
+        "title": "Sicko Mode",
+        "artist": "Travis Scott",
+        "album": "Astroworld",
+        "duration": 312,
+        "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/sicko-mode.mp3",
+        "genre": "Hip-Hop"
+      },
+      {
+        "Id": 7,
+        "title": "God's Plan",
+        "artist": "Drake",
+        "album": "Scorpion",
+        "duration": 198,
+        "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/gods-plan.mp3",
+        "genre": "Hip-Hop"
+      },
+      {
+        "Id": 14,
+        "title": "Lose Yourself",
+        "artist": "Eminem",
+        "album": "8 Mile Soundtrack",
+        "duration": 326,
+        "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/lose-yourself.mp3",
+        "genre": "Hip-Hop"
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "name": "Electronic Vibes",
+    "description": "Electronic music for all moods",
+    "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+    "isPublic": true,
+    "createdAt": "2024-01-12T09:15:00Z",
+    "songs": [
+      {
+        "Id": 8,
+        "title": "Midnight City",
+        "artist": "M83",
+        "album": "Hurry Up, We're Dreaming",
+        "duration": 244,
+        "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/midnight-city.mp3",
+        "genre": "Electronic"
+      },
+      {
+        "Id": 9,
+        "title": "Strobe",
+        "artist": "Deadmau5",
+        "album": "For Lack of a Better Name",
+        "duration": 634,
+        "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/strobe.mp3",
+        "genre": "Electronic"
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "name": "Jazz Essentials",
+    "description": "Classic jazz for the soul",
+    "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+    "isPublic": true,
+    "createdAt": "2024-01-11T14:45:00Z",
+    "songs": [
+      {
+        "Id": 10,
+        "title": "Take Five",
+        "artist": "Dave Brubeck",
+        "album": "Time Out",
+        "duration": 324,
+        "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/take-five.mp3",
+        "genre": "Jazz"
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "name": "Chill R&B",
+    "description": "Smooth R&B for relaxation",
+    "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+    "isPublic": true,
+    "createdAt": "2024-01-10T16:20:00Z",
+    "songs": [
+      {
+        "Id": 11,
+        "title": "All of Me",
+        "artist": "John Legend",
+        "album": "Love in the Future",
+        "duration": 269,
+        "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/all-of-me.mp3",
+        "genre": "R&B"
+      }
+    ]
+  },
+  {
+    "Id": 7,
+    "name": "Alternative Mix",
+    "description": "Alternative rock and indie favorites",
+    "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+    "isPublic": true,
+    "createdAt": "2024-01-09T11:30:00Z",
+    "songs": [
+      {
+        "Id": 15,
+        "title": "Somebody That I Used to Know",
+        "artist": "Gotye",
+        "album": "Making Mirrors",
+        "duration": 244,
+        "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/somebody-that-i-used-to-know.mp3",
+        "genre": "Alternative"
+      },
+      {
+        "Id": 16,
+        "title": "Radioactive",
+        "artist": "Imagine Dragons",
+        "album": "Night Visions",
+        "duration": 187,
+        "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/radioactive.mp3",
+        "genre": "Alternative"
+      }
+    ]
+  },
+  {
+    "Id": 8,
+    "name": "Country Roads",
+    "description": "Best country music hits",
+    "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+    "isPublic": true,
+    "createdAt": "2024-01-08T13:00:00Z",
+    "songs": [
+      {
+        "Id": 17,
+        "title": "Wagon Wheel",
+        "artist": "Darius Rucker",
+        "album": "True Believers",
+        "duration": 220,
+        "coverUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/wagon-wheel.mp3",
+        "genre": "Country"
+      },
+      {
+        "Id": 18,
+        "title": "Cruise",
+        "artist": "Florida Georgia Line",
+        "album": "Here's to the Good Times",
+        "duration": 202,
+        "coverUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+        "audioUrl": "https://example.com/audio/cruise.mp3",
+        "genre": "Country"
+      }
+    ]
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "Id": 1,
+    "name": "Pop",
+    "trackCount": 4
+  },
+  {
+    "Id": 2,
+    "name": "Rock",
+    "trackCount": 3
+  },
+  {
+    "Id": 3,
+    "name": "Hip-Hop",
+    "trackCount": 3
+  },
+  {
+    "Id": 4,
+    "name": "Electronic",
+    "trackCount": 2
+  },
+  {
+    "Id": 5,
+    "name": "Jazz",
+    "trackCount": 1
+  },
+  {
+    "Id": 6,
+    "name": "Classical",
+    "trackCount": 2
+  },
+  {
+    "Id": 7,
+    "name": "R&B",
+    "trackCount": 1
+  },
+  {
+    "Id": 8,
+    "name": "Country",
+    "trackCount": 2
+  },
+  {
+    "Id": 9,
+    "name": "Alternative",
+    "trackCount": 2
+  },
+  {
+    "Id": 10,
+    "name": "Indie",
+    "trackCount": 0
+  }
+]
