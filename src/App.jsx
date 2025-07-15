@@ -56,16 +56,41 @@ function App() {
     setIsPlaying(false);
   };
 
-  const handleNext = () => {
-    // Simple next implementation - in real app would use queue
-    setIsPlaying(false);
-    toast.info('Next song functionality would be implemented here');
+const handleNext = () => {
+    if (queue.length === 0) {
+      setIsPlaying(false);
+      toast.info('No songs in queue');
+      return;
+    }
+
+    const currentIndex = queue.findIndex(song => song.Id === currentSong?.Id);
+    const nextIndex = currentIndex + 1;
+    
+    if (nextIndex < queue.length) {
+      const nextSong = queue[nextIndex];
+      handlePlay(nextSong);
+    } else {
+      setIsPlaying(false);
+      toast.info('End of queue reached');
+    }
   };
 
   const handlePrevious = () => {
-    // Simple previous implementation - in real app would use queue
-    setIsPlaying(false);
-    toast.info('Previous song functionality would be implemented here');
+    if (queue.length === 0) {
+      setIsPlaying(false);
+      toast.info('No songs in queue');
+      return;
+    }
+
+    const currentIndex = queue.findIndex(song => song.Id === currentSong?.Id);
+    const prevIndex = currentIndex - 1;
+    
+    if (prevIndex >= 0) {
+      const prevSong = queue[prevIndex];
+      handlePlay(prevSong);
+    } else {
+      toast.info('Already at beginning of queue');
+    }
   };
 
   const handleAddToPlaylist = (song) => {
@@ -120,8 +145,32 @@ function App() {
     } catch (error) {
       toast.error('Failed to remove download');
     }
+};
+
+  const handleAddToQueue = (song) => {
+    const isAlreadyInQueue = queue.some(queueSong => queueSong.Id === song.Id);
+    if (isAlreadyInQueue) {
+      toast.info(`"${song.title}" is already in queue`);
+      return;
+    }
+    
+    setQueue(prev => [...prev, song]);
+    toast.success(`"${song.title}" added to queue`);
   };
 
+  const handleRemoveFromQueue = (songId) => {
+    const songToRemove = queue.find(song => song.Id === songId);
+    setQueue(prev => prev.filter(song => song.Id !== songId));
+    
+    if (songToRemove) {
+      toast.success(`"${songToRemove.title}" removed from queue`);
+    }
+  };
+
+  const handleReorderQueue = (newQueue) => {
+    setQueue(newQueue);
+    toast.success('Queue reordered');
+  };
   return (
     <Router>
       <div className="min-h-screen bg-background text-white">
@@ -136,6 +185,7 @@ function App() {
                   onPlay={handlePlay}
                   onPause={handlePause}
                   onAddToPlaylist={handleAddToPlaylist}
+                  onAddToQueue={handleAddToQueue}
                   onToggleFavorite={handleToggleFavorite}
                   onDownloadSong={handleDownloadSong}
                   onDownloadAlbum={handleDownloadAlbum}
@@ -153,6 +203,7 @@ function App() {
                   onPlay={handlePlay}
                   onPause={handlePause}
                   onAddToPlaylist={handleAddToPlaylist}
+                  onAddToQueue={handleAddToQueue}
                   onToggleFavorite={handleToggleFavorite}
                   onDownloadSong={handleDownloadSong}
                   onDownloadAlbum={handleDownloadAlbum}
@@ -170,6 +221,7 @@ function App() {
                   onPlay={handlePlay}
                   onPause={handlePause}
                   onAddToPlaylist={handleAddToPlaylist}
+                  onAddToQueue={handleAddToQueue}
                   onToggleFavorite={handleToggleFavorite}
                   onDownloadSong={handleDownloadSong}
                   onDownloadAlbum={handleDownloadAlbum}
@@ -197,7 +249,7 @@ function App() {
           </Routes>
         </AnimatePresence>
 
-        <MusicPlayer
+<MusicPlayer
           currentSong={currentSong}
           isPlaying={isPlaying}
           onPlay={handlePlay}
@@ -205,6 +257,9 @@ function App() {
           onNext={handleNext}
           onPrevious={handlePrevious}
           queue={queue}
+          onAddToQueue={handleAddToQueue}
+          onRemoveFromQueue={handleRemoveFromQueue}
+          onReorderQueue={handleReorderQueue}
         />
 
         <BottomNavigation />

@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/atoms/Button";
 import ApperIcon from "@/components/ApperIcon";
+import QueuePanel from "@/components/organisms/QueuePanel";
 import { cn } from "@/utils/cn";
-
 const MusicPlayer = ({ 
   currentSong, 
   isPlaying, 
@@ -13,12 +13,16 @@ const MusicPlayer = ({
   onPrevious,
   onSeek,
   queue = [],
+  onAddToQueue,
+  onRemoveFromQueue,
+  onReorderQueue,
   className 
 }) => {
-  const [progress, setProgress] = useState(0);
+const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [volume, setVolume] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
+  const [showQueue, setShowQueue] = useState(false);
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -77,19 +81,37 @@ const MusicPlayer = ({
     } else {
       onPlay?.();
     }
+};
+
+  const toggleQueue = () => {
+    setShowQueue(!showQueue);
   };
 
   if (!currentSong) return null;
 
-  return (
-    <motion.div
-      initial={{ y: 100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      className={cn(
-        "fixed bottom-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-md border-t border-gray-700",
-        className
-      )}
-    >
+return (
+    <>
+      <AnimatePresence>
+        {showQueue && (
+          <QueuePanel
+            queue={queue}
+            currentSong={currentSong}
+            onPlay={onPlay}
+            onRemoveFromQueue={onRemoveFromQueue}
+            onReorderQueue={onReorderQueue}
+            onClose={() => setShowQueue(false)}
+          />
+        )}
+      </AnimatePresence>
+      
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className={cn(
+          "fixed bottom-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-md border-t border-gray-700",
+          className
+        )}
+      >
       <audio
         ref={audioRef}
         src={currentSong.audioUrl}
@@ -163,8 +185,19 @@ const MusicPlayer = ({
             </Button>
           </div>
 
-          {/* Volume Control */}
+{/* Volume Control */}
           <div className="flex items-center gap-2 flex-1 justify-end">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleQueue}
+              className={cn(
+                "w-8 h-8 text-gray-400 hover:text-white",
+                showQueue && "text-primary"
+              )}
+            >
+              <ApperIcon name="List" size={16} />
+            </Button>
             <Button
               variant="ghost"
               size="icon"
@@ -187,8 +220,9 @@ const MusicPlayer = ({
             />
           </div>
         </div>
-      </div>
+</div>
     </motion.div>
+    </>
   );
 };
 
