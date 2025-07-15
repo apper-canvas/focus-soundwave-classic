@@ -15,10 +15,15 @@ const BottomNavigation = ({ className }) => {
       label: "Search", 
       icon: "Search" 
     },
-    { 
+{ 
       path: "/library", 
       label: "Library", 
       icon: "Library" 
+    },
+    { 
+      path: "/downloads", 
+      label: "Downloads", 
+      icon: "Download" 
     },
     { 
       path: "/profile", 

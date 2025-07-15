@@ -18,7 +18,10 @@ const Search = ({
   onPause, 
   onAddToPlaylist, 
   onToggleFavorite, 
-  favoriteIds = [] 
+  onDownloadSong,
+  onDownloadAlbum,
+  favoriteIds = [],
+  downloadedIds = []
 }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState({
@@ -153,7 +156,7 @@ const Search = ({
               transition={{ duration: 0.2 }}
             >
               {activeTab === "songs" && (
-                <TrackList
+<TrackList
                   tracks={searchResults.songs}
                   loading={loading}
                   error={error}
@@ -164,20 +167,24 @@ const Search = ({
                   onPause={onPause}
                   onAddToPlaylist={onAddToPlaylist}
                   onToggleFavorite={onToggleFavorite}
+                  onDownloadSong={onDownloadSong}
                   favoriteIds={favoriteIds}
+                  downloadedIds={downloadedIds}
                   emptyMessage="No songs found"
                 />
               )}
 
               {activeTab === "albums" && (
-                <AlbumGrid
+<AlbumGrid
                   albums={searchResults.albums}
                   loading={loading}
                   error={error}
                   onRetry={() => handleSearch(searchQuery)}
                   onPlay={handlePlayAlbum}
                   onToggleFavorite={onToggleFavorite}
+                  onDownloadAlbum={onDownloadAlbum}
                   favoriteIds={favoriteIds}
+                  downloadedIds={downloadedIds}
                   emptyMessage="No albums found"
                 />
               )}

@@ -7,7 +7,9 @@ const AlbumCard = ({
   album, 
   onPlay, 
   onToggleFavorite,
+  onDownloadAlbum,
   isFavorite = false,
+  isDownloaded = false,
   className 
 }) => {
   const trackCount = album.songs?.length || 0;
@@ -53,17 +55,30 @@ const AlbumCard = ({
           <span className="text-xs text-gray-500">
             {album.releaseYear} • {trackCount} {trackCount === 1 ? "song" : "songs"}
           </span>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => onToggleFavorite?.(album)}
-            className={cn(
-              "w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity",
-              isFavorite && "opacity-100 text-accent"
-            )}
-          >
-            <ApperIcon name={isFavorite ? "Heart" : "Heart"} size={16} />
-          </Button>
+<div className="flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => onToggleFavorite?.(album)}
+              className={cn(
+                "w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity",
+                isFavorite && "opacity-100 text-accent"
+              )}
+            >
+              <ApperIcon name={isFavorite ? "Heart" : "Heart"} size={16} />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => onDownloadAlbum?.(album)}
+              className={cn(
+                "w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity",
+                isDownloaded && "opacity-100 text-success"
+              )}
+            >
+              <ApperIcon name={isDownloaded ? "Check" : "Download"} size={16} />
+            </Button>
+          </div>
         </div>
       </div>
     </motion.div>

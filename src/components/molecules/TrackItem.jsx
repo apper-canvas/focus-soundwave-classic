@@ -10,7 +10,9 @@ const TrackItem = ({
   onPause,
   onAddToPlaylist,
   onToggleFavorite,
+  onDownloadSong,
   isFavorite = false,
+  isDownloaded = false,
   showAlbum = true,
   className 
 }) => {
@@ -83,13 +85,25 @@ const TrackItem = ({
           <ApperIcon name={isFavorite ? "Heart" : "Heart"} size={16} />
         </Button>
         
-        <Button
+<Button
           variant="ghost"
           size="icon"
           onClick={() => onAddToPlaylist?.(track)}
           className="w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity"
         >
           <ApperIcon name="Plus" size={16} />
+        </Button>
+        
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => onDownloadSong?.(track)}
+          className={cn(
+            "w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity",
+            isDownloaded && "opacity-100 text-success"
+          )}
+        >
+          <ApperIcon name={isDownloaded ? "Check" : "Download"} size={16} />
         </Button>
         
         <span className="text-sm text-gray-400 min-w-[40px] text-right">

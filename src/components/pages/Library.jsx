@@ -16,7 +16,10 @@ const Library = ({
   onPause, 
   onAddToPlaylist, 
   onToggleFavorite, 
-  favoriteIds = [] 
+  onDownloadSong,
+  onDownloadAlbum,
+  favoriteIds = [],
+  downloadedIds = []
 }) => {
   const [activeTab, setActiveTab] = useState("songs");
   const [library, setLibrary] = useState({
@@ -138,7 +141,7 @@ const Library = ({
           transition={{ duration: 0.2 }}
         >
           {activeTab === "songs" && (
-            <TrackList
+<TrackList
               tracks={library.savedSongs}
               loading={loading}
               error={error}
@@ -149,21 +152,25 @@ const Library = ({
               onPause={onPause}
               onAddToPlaylist={onAddToPlaylist}
               onToggleFavorite={onToggleFavorite}
+              onDownloadSong={onDownloadSong}
               favoriteIds={favoriteIds}
+              downloadedIds={downloadedIds}
               emptyMessage="No saved songs"
               emptyIcon="Heart"
             />
           )}
 
           {activeTab === "albums" && (
-            <AlbumGrid
+<AlbumGrid
               albums={library.savedAlbums}
               loading={loading}
               error={error}
               onRetry={loadLibrary}
               onPlay={handlePlayAlbum}
               onToggleFavorite={onToggleFavorite}
+              onDownloadAlbum={onDownloadAlbum}
               favoriteIds={favoriteIds}
+              downloadedIds={downloadedIds}
               emptyMessage="No saved albums"
               emptyIcon="Disc"
             />

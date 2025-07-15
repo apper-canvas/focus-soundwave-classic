@@ -8,28 +8,36 @@ import Home from '@/components/pages/Home';
 import Search from '@/components/pages/Search';
 import Library from '@/components/pages/Library';
 import Profile from '@/components/pages/Profile';
+import DownloadManager from '@/components/pages/DownloadManager';
 import MusicPlayer from '@/components/organisms/MusicPlayer';
 import BottomNavigation from '@/components/organisms/BottomNavigation';
 import userLibraryService from '@/services/api/userLibraryService';
+import downloadService from '@/services/api/downloadService';
 
 function App() {
   const [currentSong, setCurrentSong] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [queue, setQueue] = useState([]);
   const [favoriteIds, setFavoriteIds] = useState([]);
+  const [downloadedIds, setDownloadedIds] = useState([]);
 
-  // Load user favorites on app start
+// Load user favorites and downloads on app start
   useEffect(() => {
-    const loadFavorites = async () => {
+    const loadUserData = async () => {
       try {
-        const library = await userLibraryService.getLibrary();
+        const [library, downloads] = await Promise.all([
+          userLibraryService.getLibrary(),
+          downloadService.getAll()
+        ]);
         const favorites = library.savedSongs.map(song => song.Id);
+        const downloadedSongs = downloads.map(download => download.Id);
         setFavoriteIds(favorites);
+        setDownloadedIds(downloadedSongs);
       } catch (error) {
-        console.error('Failed to load favorites:', error);
+        console.error('Failed to load user data:', error);
       }
     };
-    loadFavorites();
+    loadUserData();
   }, []);
 
   const handlePlay = async (song) => {
@@ -81,6 +89,37 @@ function App() {
     } catch (error) {
       toast.error('Failed to update favorites');
     }
+};
+
+  const handleDownloadSong = async (song) => {
+    try {
+      await downloadService.downloadSong(song);
+      setDownloadedIds(prev => [...prev, song.Id]);
+      toast.success(`"${song.title}" downloaded for offline listening`);
+    } catch (error) {
+      toast.error('Failed to download song');
+    }
+  };
+
+  const handleDownloadAlbum = async (album) => {
+    try {
+      await downloadService.downloadAlbum(album);
+      const albumSongIds = album.songs?.map(song => song.Id) || [];
+      setDownloadedIds(prev => [...prev, ...albumSongIds]);
+      toast.success(`"${album.name}" downloaded for offline listening`);
+    } catch (error) {
+      toast.error('Failed to download album');
+    }
+  };
+
+  const handleRemoveDownload = async (itemId) => {
+    try {
+      await downloadService.removeDownload(itemId);
+      setDownloadedIds(prev => prev.filter(id => id !== itemId));
+      toast.success('Download removed');
+    } catch (error) {
+      toast.error('Failed to remove download');
+    }
   };
 
   return (
@@ -88,7 +127,7 @@ function App() {
       <div className="min-h-screen bg-background text-white">
         <AnimatePresence mode="wait">
           <Routes>
-            <Route 
+<Route 
               path="/" 
               element={
                 <Home 
@@ -98,35 +137,56 @@ function App() {
                   onPause={handlePause}
                   onAddToPlaylist={handleAddToPlaylist}
                   onToggleFavorite={handleToggleFavorite}
+                  onDownloadSong={handleDownloadSong}
+                  onDownloadAlbum={handleDownloadAlbum}
                   favoriteIds={favoriteIds}
+                  downloadedIds={downloadedIds}
                 />
               } 
             />
             <Route 
               path="/search" 
               element={
-                <Search 
+<Search 
                   currentSong={currentSong}
                   isPlaying={isPlaying}
                   onPlay={handlePlay}
                   onPause={handlePause}
                   onAddToPlaylist={handleAddToPlaylist}
                   onToggleFavorite={handleToggleFavorite}
+                  onDownloadSong={handleDownloadSong}
+                  onDownloadAlbum={handleDownloadAlbum}
                   favoriteIds={favoriteIds}
+                  downloadedIds={downloadedIds}
                 />
               } 
             />
             <Route 
               path="/library" 
               element={
-                <Library 
+<Library 
                   currentSong={currentSong}
                   isPlaying={isPlaying}
                   onPlay={handlePlay}
                   onPause={handlePause}
                   onAddToPlaylist={handleAddToPlaylist}
                   onToggleFavorite={handleToggleFavorite}
+                  onDownloadSong={handleDownloadSong}
+                  onDownloadAlbum={handleDownloadAlbum}
                   favoriteIds={favoriteIds}
+                  downloadedIds={downloadedIds}
+                />
+              } 
+            />
+<Route 
+              path="/downloads" 
+              element={
+                <DownloadManager 
+                  currentSong={currentSong}
+                  isPlaying={isPlaying}
+                  onPlay={handlePlay}
+                  onPause={handlePause}
+                  onRemoveDownload={handleRemoveDownload}
                 />
               } 
             />
